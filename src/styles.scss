@@ -25,7 +25,7 @@ body {
 
     ul {
         margin: 12px 0;
-        list-style: disc inside;
+        list-style: disc;
     }
 
     :not(article) > ol {
@@ -222,6 +222,27 @@ table {
         }
     }
 
+    @include media-breakpoint-down(sm) {
+        .docs-api-properties-table, 
+        .docs-api-properties-row,
+        .docs-api-properties-th,
+        .docs-api-properties-name-cell, 
+        .docs-api-property-description{
+            padding-top: 0;
+            padding-bottom: 5px;
+            display: block;
+        }
+        
+        tbody > tr:not(:last-child) > {
+            .docs-api-properties-th:nth-child(odd),
+            .docs-api-properties-name-cell {
+                padding-top: 5px;
+                padding-bottom: 0;
+                border-bottom: none;
+            }
+        }
+    }
+
     tbody > tr:not(:last-child) > {
         td,
         th {
@@ -255,9 +276,8 @@ table {
     > span {
         display: block;
         padding: 0 0.5em 0 1em;
-        border-right: 1px solid;
         margin-right: 5px;
-        color: rgba($gray-600, 0.5);
+        color: $gray-300;
         @include fontSize(14px);
         font-family: Consolas, Menlo, 'Ubuntu Mono', monospace;
     }
